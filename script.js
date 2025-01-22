@@ -3,7 +3,7 @@ let header = document.querySelector('#content h3');
 let description = document.querySelector('#content p');
 let contentImage = document.querySelector('#content-image img');
 
-const common = [
+let common = [
     {
         image: "assets/history.jpg",
         h3: "History",
@@ -27,13 +27,17 @@ function updateContent(index) {
     description.textContent = common[index].p;
 
     tabs.forEach((tab, i) => {
-        tab.classList.add('active', i === index);
+        tab.classList.toggle('active', i === index);
+        
     });
 }
 
 tabs.forEach((tab, index) => {
     tab.addEventListener('click', () => updateContent(index));
 });
+
+
+
 
 
 
